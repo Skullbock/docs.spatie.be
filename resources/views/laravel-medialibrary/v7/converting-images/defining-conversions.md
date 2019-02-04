@@ -139,3 +139,12 @@ true` on your model.
 ```
 
 Be aware that this can lead to a hit in performance. When processing media the medialibrary has to perform queries to fetch each separate model.
+
+In order to optimize this, you can use [eager loading](https://laravel.com/docs/5.7/eloquent-relationships#eager-loading) to avoid the n+1 problem.
+
+```
+```php
+
+    $yourModelWithMedia->with(['media.model'])->get();
+
+```
